@@ -12,8 +12,4 @@ Scenario: Use dirb to scan a website for basic security requirements and the DIR
   """
   dirb <hostname> <dirb_wordlists_path>/<wordlist> -wf
   """
-  Then the output should contain:
-  """
-  FOUND: 0
-  """
 

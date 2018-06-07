@@ -1,0 +1,14 @@
+@slow @announce
+Feature: Run sqlmap against a target
+  # See:
+  #   https://github.com/sqlmapproject/sqlmap/wiki/Usage
+
+Scenario: Identify SQL injection vulnerabilities
+  Given "sqlmap" is installed
+  And the following profile:
+    | name       | value                                           |
+    | target_url | http://35.231.209.76:3000/api/user?user_id=1    |
+  When I launch a "sqlmap" attack with:
+    """
+    python <sqlmap_path> -u <target_url> --tables -D test
+    """
